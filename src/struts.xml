@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="struts2_member" extends="struts-default" namespace="/member">
+
+		<action name="login" class="nju.fraborna.healthclub.action.LoginAction">
+			<result name="success">/member/homepage.jsp</result>
+			<result name="false">/member/login.jsp</result>
+			<result name="manager">/manager/header.jsp</result>
+			<result name="waiter">/waiter/header.jsp</result>
+		</action>
+
+		<action name="register" class="nju.fraborna.healthclub.action.RegisterAction">
+			<result name="success">/member/activation.jsp</result>
+			<result name="false">/member/register.jsp</result>
+		</action>
+
+		<action name="activation" class="nju.fraborna.healthclub.action.ActivationAction">
+			<result name="success">/member/login.jsp</result>
+		</action>
+		
+		<action name="disqualification" class="nju.fraborna.healthclub.action.DisqualificationAction">
+			<result name="success">/member/index.jsp</result>
+		</action>
+
+		<action name="pay" class="nju.fraborna.healthclub.action.PayPerMonthAction" method="pay">
+			<result name="success">/member/homepage.jsp</result>
+		</action>
+		
+		<action name="geticnum" class="nju.fraborna.healthclub.action.PayPerMonthAction" method="getICNum">
+			<result name="success">/member/chongzhi.jsp</result>
+		</action>
+		
+		<action name="getactivities" class="nju.fraborna.healthclub.action.BookActivityAction" method="getActivities">
+			<result name="success">/member/bookactivity.jsp</result>
+		</action>
+		
+		<action name="bookactivities" class="nju.fraborna.healthclub.action.BookActivityAction">
+			<result name="success">/member/bookactivity.jsp</result>
+		</action>
+		
+		<action name="getmemberinfo" class="nju.fraborna.healthclub.action.CheckInfoAction" method="getBaseInfo">
+			<result name="success">/member/baseinfo.jsp</result>
+		</action>
+		
+		<action name="altermemberinfo" class="nju.fraborna.healthclub.action.CheckInfoAction" method="getBaseInfo">
+			<result name="success">/member/alterBaseInfo.jsp</result>
+		</action>
+		
+		<action name="modifymemberinfo" class="nju.fraborna.healthclub.action.CheckInfoAction" method="alterBaseInfo">
+			<result name="success">/member/homepage.jsp</result>
+		</action>
+		
+		<action name="getactivityrecord" class="nju.fraborna.healthclub.action.CheckInfoAction" method="getActivityRecord">
+			<result name="success">/member/activityRecord.jsp</result>
+		</action>
+		
+		<action name="getpayrecord" class="nju.fraborna.healthclub.action.CheckInfoAction" method="getPayRecord">
+			<result name="success">/member/payRecord.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="struts2_manager" extends="struts-default" namespace="/manager">
+
+		<action name="byage" class="nju.fraborna.healthclub.action.ManagerAction" method="getByAge">
+			<result name="success">/manager/byage.jsp</result>
+		</action>
+		
+		<action name="bysex" class="nju.fraborna.healthclub.action.ManagerAction" method="getBySex">
+			<result name="success">/manager/bysex.jsp</result>
+		</action>
+		
+		<action name="bystatus" class="nju.fraborna.healthclub.action.ManagerAction" method="getByStatus">
+			<result name="success">/manager/bystatus.jsp</result>
+		</action>
+		
+		<action name="byaddress" class="nju.fraborna.healthclub.action.ManagerAction" method="getByAddress">
+			<result name="success">/manager/byaddress.jsp</result>
+		</action>
+		
+		<action name="aboutfield" class="nju.fraborna.healthclub.action.ManagerAction" method="getInfoAboutField">
+			<result name="success">/manager/aboutfield.jsp</result>
+		</action>
+		
+		<action name="aboutcoach" class="nju.fraborna.healthclub.action.ManagerAction" method="getInfoAboutCoach">
+			<result name="success">/manager/aboutcoach.jsp</result>
+		</action>
+		
+		<action name="dayloginnum" class="nju.fraborna.healthclub.action.ManagerAction" method="getDayLoginNum">
+			<result name="success">/manager/header.jsp</result>
+		</action>
+		
+		<action name="monthloginnum" class="nju.fraborna.healthclub.action.ManagerAction" method="getMonthLoginNum">
+			<result name="success">/manager/header.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="struts2_waiter" extends="struts-default" namespace="/waiter">
+	
+	<action name="planevent" class="nju.fraborna.healthclub.action.WaiterAction" method="planEvent">
+			<result name="success">/waiter/header.jsp</result>
+	</action>
+	
+	<action name="recordmid" class="nju.fraborna.healthclub.action.WaiterAction" method="recordMid">
+			<result name="success">/waiter/header.jsp</result>
+	</action>
+	
+	<action name="getaids" class="nju.fraborna.healthclub.action.WaiterAction" method="getActivitiesID">
+			<result name="success">/waiter/recordmid.jsp</result>
+	</action>
+	
+	<action name="getcids" class="nju.fraborna.healthclub.action.WaiterAction" method="getCoachesIDs">
+			<result name="success">/waiter/planevent.jsp</result>
+	</action>
+	
+	<action name="userinfo" class="nju.fraborna.healthclub.action.WaiterAction" method="searchMemberBaseInfo">
+			<result name="success">/waiter/memberBaseInfo.jsp</result>
+	</action>
+	
+	<action name="useractinfo" class="nju.fraborna.healthclub.action.WaiterAction" method="searchMemberActInfo">
+			<result name="success">/waiter/memberActInfo.jsp</result>
+	</action>
+	
+	<action name="userpayinfo" class="nju.fraborna.healthclub.action.WaiterAction" method="searchMemberPayInfo">
+			<result name="success">/waiter/memberPayInfo.jsp</result>
+	</action>
+	
+	</package>
+	
+</struts>
+
